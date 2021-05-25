@@ -52,9 +52,10 @@ steps:
   displayName: "publish code coverage report"
 
 # Fail build if coverage below threshold
-- task: BuildQualityChecks@7
+- task: BuildQualityChecks@8
   inputs:
     checkCoverage: true
     coverageFailOption: 'fixed'
     coverageType: 'lines'
     coverageThreshold: $(code_coverge_threshold)
+    displayName: 'Check build quality'
