@@ -9,9 +9,8 @@ test('Http trigger should return query name text', async () => {
 
     await httpFunction(context, request);
 
-    expect(context.log.mock.calls.length).toBe(1);
-    expect(context.res.status).toEqual(200);
     expect(context.res.body).toEqual('Hello Bill');
+    expect(context.res.status).toEqual(200);
 });
 test('Http trigger should return body name text', async () => {
 
@@ -21,9 +20,9 @@ test('Http trigger should return body name text', async () => {
 
     await httpFunction(context, request);
 
-    expect(context.log.mock.calls.length).toBe(1);
-    expect(context.res.status).toEqual(200);
     expect(context.res.body).toEqual('Hello Bob');
+    expect(context.res.status).toEqual(200);
+
 });
 test('Http trigger should fail when missing input', async () => {
 
@@ -33,7 +32,5 @@ test('Http trigger should fail when missing input', async () => {
 
     await httpFunction(context, request);
 
-    expect(context.log.mock.calls.length).toBe(1);
-    expect(context.res.status).toEqual(200);
-    //expect(context.res.body).toEqual('Please pass a name on the query string or in the request body');
+    expect(context.res.status).toEqual(400);
 });
